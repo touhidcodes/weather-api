@@ -3,6 +3,7 @@ document.getElementById("btn").addEventListener("click", function () {
   loadData();
 });
 
+// Fetch Data from Weather Server
 function loadData() {
   const cityName = document.getElementById("city").value;
   const apiKey = `990768f78b8fc8bf9e2ad424932b32ef`;
@@ -25,3 +26,7 @@ function displayData(temperature) {
   setInnerText("Temp", temperature.main.temp);
   setInnerText("Conditon", temperature.weather[0].main);
 }
+
+// Set Icon
+const iconUrl = `http://openweathermap.org/img/wn/${temperature.weather[0].icon}@2x.png`;
+setInnerText("Icon", iconUrl);
