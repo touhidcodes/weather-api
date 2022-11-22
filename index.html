@@ -48,24 +48,21 @@
       </div>
     </div>
     <script>
+      document.getElementById("btn").addEventListener("click", function () {
+        const location = document.getElementById("city").value;
+        getData();
+      });
+      let key = "3b5b5db42d8262c544b640ae987a0e48";
+
       function getData() {
-        const btn = document
-          .getElementById("btn")
-          .addEventListener("click", function () {
-            const location = document.getElementById("city").value;
-          });
-        return location;
-      }
-      let key = "990768f78b8fc8bf9e2ad424932b32ef";
-      fetch(
-        `http://api.openweathermap.org/geo/1.0/direct?q=${getData()}&appid=${key}`
+        fetch(
+          `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${key}`
+        )
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
-          })
-      );
-
-      getData();
+          });
+      }
     </script>
   </body>
 </html>
