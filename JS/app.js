@@ -13,7 +13,8 @@ function loadData() {
     .then((res) => res.json())
     .then((Data) => {
       displayData(Data);
-    });
+    })
+    .catch((err) => alert("Enter a Valid City Name"));
 }
 
 // Set Inner Text Function
