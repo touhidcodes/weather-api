@@ -42,27 +42,11 @@
       </form>
       <div class="weather-status text-white text-center">
         <img src="https://openweathermap.org/img/wn/02d@2x.png" alt="" />
-        <h1>Dhaka</h1>
-        <h3><span>38.06</span>&deg;C</h3>
-        <h1 class="lead">Clouds</h1>
+        <h1 id="City-Name">Dhaka</h1>
+        <h3><span id="Temp">38.06</span>&deg;C</h3>
+        <h1 id="Conditon" class="lead">Clouds</h1>
       </div>
     </div>
-    <script>
-      document.getElementById("btn").addEventListener("click", function () {
-        const location = document.getElementById("city").value;
-        getData();
-      });
-      let key = "3b5b5db42d8262c544b640ae987a0e48";
-
-      function getData() {
-        fetch(
-          `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${key}`
-        )
-          .then((res) => res.json())
-          .then((data) => {
-            console.log(data);
-          });
-      }
-    </script>
+    <script src="JS/app.js"></script>
   </body>
 </html>
