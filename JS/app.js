@@ -11,22 +11,23 @@ function loadData() {
 
   fetch(url)
     .then((res) => res.json())
-    .then((data) => {
-      console.log(data);
-      displayData(data);
+    .then((Data) => {
+      displayData(Data);
     });
 }
 
+// Set Inner Text Function
 const setInnerText = (id, text) => {
   document.getElementById(id).innerText = text;
 };
 
+// Display Data Function
 function displayData(temperature) {
   setInnerText("City-Name", temperature.name);
   setInnerText("Temp", temperature.main.temp);
   setInnerText("Conditon", temperature.weather[0].main);
-}
 
-// Set Icon
-const iconUrl = `http://openweathermap.org/img/wn/${temperature.weather[0].icon}@2x.png`;
-setInnerText("Icon", iconUrl);
+  // Set Icon
+  const iconUrl = `http://openweathermap.org/img/wn/${temperature.weather[0].icon}@2x.png`;
+  document.getElementById("Icon").setAttribute("src", iconUrl);
+}
